@@ -23,6 +23,7 @@ public class BoardGame {
 		for (int playerTurn = 1; playerTurn <= ApplicationConstant.TOTAL_BOARD_POSITONS; playerTurn++) {
 
 			int boardPosition = -1;
+			displayBoard(board);
 			
 			while (boardPosition == ApplicationConstant.INVALID_BOARD_POSITION) {
 
@@ -46,7 +47,8 @@ public class BoardGame {
 		}
 		
 		result = checkGameDraw(result);
-
+		displayBoard(board);
+		input.scannerClose();
 		return result;
 	}
 	
@@ -90,6 +92,18 @@ public class BoardGame {
 		
 		return result;
 		
+	}
+	
+	private void displayBoard(String board[][]) {
+		System.out.println("Board : ");
+		for (int rowIndex = 0; rowIndex < ApplicationConstant.TOTAL_ROWS; rowIndex++) {
+
+			for (int columnIndex = 0; columnIndex < ApplicationConstant.TOTAL_COLUMNS; columnIndex++) {
+				System.out.print(board[rowIndex][columnIndex] + " ");
+			}
+			System.out.println();
+		}
+
 	}
 
 }

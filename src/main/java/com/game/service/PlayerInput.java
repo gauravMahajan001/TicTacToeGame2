@@ -70,6 +70,10 @@ public class PlayerInput {
 		return boardPositionList;
 	}
 	
+	public void scannerClose() {
+		inputScanner.getScanner().close();
+	}
+	
 	private int scanInput() {
 		int position = 0;
 
