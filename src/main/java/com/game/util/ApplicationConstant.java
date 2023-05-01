@@ -13,4 +13,7 @@ public class ApplicationConstant {
 	public static final String GAME = "game";
 	public static final String WIN = "win";
 	public static final int TOTAL_COLUMNS = 3;
+	public static final String DRAW = "draw";
+	public static final int TOTAL_BOARD_POSITONS = 9;
+	
 }
