@@ -61,5 +61,29 @@ public class PatternMatch {
 
 		return result;
 	}
+	
+	/**
+	 * 
+	 * @param board
+	 * @return Map 
+	 * Check the diagonal. if match then player win.
+	 */
+	public  Map<String, String> diagonalMatch(String[][] board) {
+		Map<String, String> result = new HashMap<>();
+
+		if (board[firstRow][firstColumn] == board[secondRow][secondColumn]
+				&& board[firstRow][firstColumn]==board[thirdRow][thirdcolumn]) {
+
+			result.put(ApplicationConstant.GAME, ApplicationConstant.WIN);
+			
+
+		} else if (board[firstRow][thirdcolumn] == board[secondRow][secondColumn]
+				&& board[firstRow][thirdcolumn]==board[thirdRow][firstColumn]) {
+
+			result.put(ApplicationConstant.GAME, ApplicationConstant.WIN);
+			
+		}
+		return result;
+	}
 
 }

@@ -68,6 +68,16 @@ public class PatternMatchTest {
 		assertTrue(result.isEmpty());
 	}
 
+	@Test
+	@DisplayName("pattern match diagonal")
+	public void testPassDiagonalMatch() {
+
+		String board[][] = { { "O", "2", "O" }, { "X", "O", "X" }, { "X", "X", "O" } };
+
+		Map<String, String> result = patternMatch.diagonalMatch(board);
+
+		assertEquals(result.get(ApplicationConstant.GAME), ApplicationConstant.WIN);
+	}
 	
 
 }
