@@ -45,6 +45,17 @@ public class PatternMatchTest {
 
 		assertTrue(result.isEmpty());
 	}
+	
+	@Test
+	@DisplayName("pattern match vertical")
+	public void testPassVerticalMatch() {
+
+		String board[][] = { { "X", "X", "O" }, { "4", "5", "O" }, { "7", "X", "O" } };
+
+		Map<String, String> result = patternMatch.verticalMatch(board);
+
+		assertEquals(result.get(ApplicationConstant.GAME), ApplicationConstant.WIN);
+	}
 
 	
 
