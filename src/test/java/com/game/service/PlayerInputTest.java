@@ -13,6 +13,7 @@ import com.game.util.ApplicationConstant;
 public class PlayerInputTest {
 	
 	private int player_first_turn =1;
+	private int player_second_turn = 2;
 	
 	@InjectMocks
 	private PlayerInput input;
@@ -30,6 +31,15 @@ public class PlayerInputTest {
 		String result = input.getPlayer(player_first_turn);
 		assertEquals(ApplicationConstant.PLAYER_X, result);
 	}
+	
+	@Test
+	@DisplayName("Check player O plays")
+	public void testPlayer_O() {
+
+		String result = input.getPlayer(player_second_turn);
+		assertEquals(ApplicationConstant.PLAYER_O, result);
+	}
+
 	
 
 }

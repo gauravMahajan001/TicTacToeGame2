@@ -13,6 +13,8 @@ public class PlayerInput {
 		if (playerTurn % 2 != 0) {
 			player = ApplicationConstant.PLAYER_X;
 
+		}else {
+			player = ApplicationConstant.PLAYER_O;
 		}
 		return player;
 	}
