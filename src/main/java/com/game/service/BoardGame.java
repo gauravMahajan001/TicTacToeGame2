@@ -44,6 +44,8 @@ public class BoardGame {
 				break;
 			}
 		}
+		
+		result = checkGameDraw(result);
 
 		return result;
 	}
@@ -79,6 +81,15 @@ public class BoardGame {
 		}
 		return board;
 
+	}
+	
+	private Map<String, String> checkGameDraw(Map<String, String> result){
+		if (result.isEmpty()) {
+			result.put(ApplicationConstant.GAME, ApplicationConstant.DRAW);
+		}
+		
+		return result;
+		
 	}
 
 }
