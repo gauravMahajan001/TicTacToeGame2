@@ -1,6 +1,7 @@
 package com.game.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Map;
 
@@ -33,6 +34,18 @@ public class PatternMatchTest {
 
 		assertEquals(result.get(ApplicationConstant.GAME), ApplicationConstant.WIN);
 	}
+	
+	@Test
+	@DisplayName("pattern match fail horizontal")
+	public void testFailHorizontalMatch() {
+
+		String board[][] = { { "O", "X", "O" }, { "O", "X", "O" }, { "X", "X", "O" } };
+
+		Map<String, String> result = patternMatch.horizontalMatch(board);
+
+		assertTrue(result.isEmpty());
+	}
+
 	
 
 }
