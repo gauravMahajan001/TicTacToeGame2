@@ -1,6 +1,8 @@
 package com.game.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -16,6 +18,7 @@ public class PlayerInput {
 
 	private static final Logger logger = LoggerFactory.getLogger(PlayerInput.class);
 	private Map<String, String> playerMap = new HashMap<>();
+	private List<Integer> boardPositionList = new ArrayList<>();
 
 	@Autowired
 	private InputScanner inputScanner;
@@ -53,10 +56,20 @@ public class PlayerInput {
 				|| boardPosition >= ApplicationConstant.INVALID_TEN_POSITION) {
 			logger.info("\n Please player " + player + " enter valid board position ?");
 			boardPosition = -1;
+		} else if (getBoardPositionList().contains(boardPosition)) {
+			logger.info("\n This position has already exist. Please player " + player + " enter board position again ?");
+			boardPosition = -1;
+		}
+		if (boardPosition > 0) {
+			getBoardPositionList().add(boardPosition);
 		}
 		return boardPosition;
 	}
 
+	public List<Integer> getBoardPositionList() {
+		return boardPositionList;
+	}
+	
 	private int scanInput() {
 		int position = 0;
 
@@ -69,5 +82,7 @@ public class PlayerInput {
 		}
 		return position;
 	}
+	
+	
 
 }

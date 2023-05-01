@@ -22,6 +22,8 @@ public class PlayerInputTest {
 	private String invalid_boardPosition = "T";
 	private String invalid_boardPosition_zero = "0";
 	private String invalid_boardPosition_ten = "10";
+	private String boardPosition_exist = "5";
+	private int position_exist = 5;
 
 	@InjectMocks
 	private PlayerInput input;
@@ -68,7 +70,8 @@ public class PlayerInputTest {
 	public void test_invalidBoardPosition() {
 		doReturn(invalid_boardPosition).when(inputScanner).getInput();
 
-		int result = input.check_boardPosition(ApplicationConstant.INVALID_BOARD_POSITION, ApplicationConstant.PLAYER_X);
+		int result = input.check_boardPosition(ApplicationConstant.INVALID_BOARD_POSITION,
+				ApplicationConstant.PLAYER_X);
 		assertEquals(ApplicationConstant.INVALID_BOARD_POSITION, result);
 	}
 
@@ -87,6 +90,16 @@ public class PlayerInputTest {
 		doReturn(invalid_boardPosition_ten).when(inputScanner).getInput();
 
 		int result = input.check_boardPosition(ApplicationConstant.INVALID_TEN_POSITION, ApplicationConstant.PLAYER_X);
+		assertEquals(ApplicationConstant.INVALID_BOARD_POSITION, result);
+	}
+
+	@Test
+	@DisplayName(" board position already eist")
+	public void test_boardPositionAlreadyExist() {
+		doReturn(boardPosition_exist).when(inputScanner).getInput();
+		input.getBoardPositionList().add(position_exist);
+
+		int result = input.check_boardPosition(position_exist, ApplicationConstant.PLAYER_X);
 		assertEquals(ApplicationConstant.INVALID_BOARD_POSITION, result);
 	}
 
