@@ -52,7 +52,7 @@ public class PlayerInput {
 		if (boardPosition == ApplicationConstant.INVALID_BOARD_POSITION) {
 			logger.info("\n Please player " + player + " enter digit for board position?");
 			boardPosition = -1;
-		} else if (boardPosition <= ApplicationConstant.INVALID_TEN_POSITION
+		} else if (boardPosition <= ApplicationConstant.INVALID_ZERO_POSITION
 				|| boardPosition >= ApplicationConstant.INVALID_TEN_POSITION) {
 			logger.info("\n Please player " + player + " enter valid board position ?");
 			boardPosition = -1;
