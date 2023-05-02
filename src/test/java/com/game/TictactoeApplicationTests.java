@@ -24,6 +24,7 @@ class TictactoeApplicationTests {
 	@Mock
 	private BoardGame game;
 	private String draw ="Match draws between players";
+	private String win = "Player X wins the game.";
 	
 	@BeforeEach
 	public void setup() {
@@ -42,6 +43,21 @@ class TictactoeApplicationTests {
 		String result = application.playGame();
 		
 		assertEquals(draw, result);
+	}
+	
+	@Test
+	@DisplayName("Player wins the game")
+	public void gameWin() {
+		
+		Map<String, String> map = new HashMap<>();
+		map.put(ApplicationConstant.GAME, ApplicationConstant.WIN);
+		map.put(ApplicationConstant.PLAYER_NAME, ApplicationConstant.PLAYER_X);
+		
+		doReturn(map).when(game).playGame(application.getBoard());
+		
+		String result = application.playGame();
+		
+		assertEquals(win, result);
 	}
 	
 
